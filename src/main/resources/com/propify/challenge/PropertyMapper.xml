@@ -15,7 +15,7 @@ DELETE FROM property ...
     </delete>
 
     <select id="search" resultMap="PropertyMap">
-SELECT * FROM property WHERE rent_price BETWEEN #{minRentPrice} AND #{maxRentPrice};
+SELECT * FROM property WHERE rent_price BETWEEN COALESCE(#{minRentPrice},0) AND COALESCE(#{maxRentPrice},~0);
     </select>
 
     <select id="findById" resultMap="PropertyMap">

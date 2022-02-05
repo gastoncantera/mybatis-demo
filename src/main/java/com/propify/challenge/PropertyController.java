@@ -15,12 +15,12 @@ public class PropertyController {
     // API endpoints for CRUD operations on entities of type Property
 
     @GetMapping("/search")
-    public Collection<Property> search(@RequestParam(defaultValue = "") String minRentPrice, @RequestParam(defaultValue = "") String maxRentPrice) {
+    public Collection<Property> search(@RequestParam(required = false) String minRentPrice, @RequestParam(required = false) String maxRentPrice) {
         return propertyService.search(minRentPrice, maxRentPrice);
     }
 
-    @GetMapping("/find")
-    public Property findById(@RequestParam(name = "id") int id) {
+    @GetMapping("/find/{id}")
+    public Property findById(@PathVariable int id) {
         return propertyService.findById(id);
     }
 
