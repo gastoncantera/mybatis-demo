@@ -14,8 +14,8 @@ UPDATE property ...
 DELETE FROM property ...
     </delete>
 
-    <select id="search" resultType="com.propify.challenge.Property">
-SELECT * FROM property;
+    <select id="search" resultMap="PropertyMap">
+SELECT * FROM property WHERE rent_price BETWEEN #{minRentPrice} AND #{maxRentPrice};
     </select>
 
     <select id="findById" resultMap="PropertyMap">
