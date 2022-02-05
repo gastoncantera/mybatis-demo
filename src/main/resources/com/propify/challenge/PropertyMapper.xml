@@ -18,8 +18,21 @@ DELETE FROM property ...
 SELECT * FROM property;
     </select>
 
-    <select id="findById" resultType="com.propify.challenge.Property">
+    <select id="findById" resultMap="PropertyMap">
 SELECT * FROM property WHERE id = #{id};
     </select>
+
+    <resultMap id="PropertyMap" type="com.propify.challenge.Property" >
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="rentPrice" column="rent_price"/>
+        <result property="emailAddress" column="email_address"/>
+        <result property="code" column="code"/>
+        <association property="type" javaType="com.propify.challenge.PropertyType">
+            <result property="type" column="type"/>
+        </association>
+        <association property="address" column="id_address" javaType="com.propify.challenge.Address"
+                     select="com.propify.challenge.AddressMapper.findById"/>
+    </resultMap>
 
 </mapper>
