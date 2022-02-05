@@ -8,12 +8,18 @@ import java.util.Collection;
 @Service
 public class PropertyService {
 
-    @Autowired
     PropertyMapper propertyMapper;
 
     AddressMapper addressMapper;
 
     AlertService alertService;
+
+    @Autowired
+    public PropertyService(PropertyMapper propertyMapper, AddressMapper addressMapper, AlertService alertService) {
+        this.propertyMapper = propertyMapper;
+        this.addressMapper = addressMapper;
+        this.alertService = alertService;
+    }
 
     public Collection<Property> search(String minRentPrice, String maxRentPrice) {
         return propertyMapper.search(minRentPrice, maxRentPrice);

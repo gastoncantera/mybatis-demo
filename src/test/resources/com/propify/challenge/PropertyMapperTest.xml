@@ -1,14 +1,80 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
 
+    <address
+            id="1"
+            street="Av Corrientes 485 Piso 6"
+            city="Buenos Aires"
+            state="BA"
+            zip="1043"
+            timezone="America/Argentina/Buenos_Aires"
+    />
+
+    <address
+            id="2"
+            street="Calle 59 N769"
+            city="La Plata"
+            state="BA"
+            zip="1900"
+            timezone="America/Argentina/Buenos_Aires"
+    />
+
+    <address
+            id="3"
+            street="Av. Mitre 870 piso 11"
+            city="Mendoza"
+            state="MZ"
+            zip="5500"
+            timezone="America/Argentina/Buenos_Aires"
+    />
+
+    <address
+            id="4"
+            street="Miraflores 222 Piso 28"
+            city="Santiago de Chile"
+            state="RM"
+            zip="83200"
+            timezone="America/Chile/Santiago"
+    />
+
     <property
             id="1"
+            create_time="20220203170000"
+            type="Single Family"
             rent_price="1000.99"
+            id_address="1"
+            email_address="NULL"
+            code="AR001"
     />
 
     <property
             id="2"
+            create_time="20220203170000"
+            type="Multi-family"
             rent_price="2000.99"
+            id_address="2"
+            email_address="NULL"
+            code="AR002"
+    />
+
+    <property
+            id="3"
+            create_time="20220203170000"
+            type="Condominium"
+            rent_price="3000.99"
+            id_address="3"
+            email_address="test@test.com"
+            code="AR003"
+    />
+
+    <property
+            id="4"
+            create_time="20220203170000"
+            type="Townhouse"
+            rent_price="4000.99"
+            id_address="4"
+            email_address="test@test.com"
+            code="CL001"
     />
 
 </dataset>
