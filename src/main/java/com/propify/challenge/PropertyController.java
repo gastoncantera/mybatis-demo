@@ -38,6 +38,7 @@ public class PropertyController {
         propertyService.delete(id);
     }
 
+    @GetMapping("/report")
     public PropertyReport report() {
         return propertyService.propertyReport();
     }

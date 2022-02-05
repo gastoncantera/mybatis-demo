@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class PropertyService {
@@ -53,16 +55,24 @@ public class PropertyService {
         var propertyReport = new PropertyReport();
 
         // Calculate total quantity
-        // propertyReport.totalQuantity =
+        propertyReport.totalQuantity = allProperties.size();
 
         // Calculate the quantity of each type, 0 if there is no properties.
-        // propertyReport.quantityPerType =
+        propertyReport.quantityPerType = allProperties.stream()
+                .map(p -> p.type)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
 
         // Calculate the average rent price (exclude the properties without rent price or with rent price = 0)
-        // propertyReport.averageRentPrice =
+        propertyReport.averageRentPrice = allProperties.stream()
+                .filter(p -> p.rentPrice != 0)
+                .mapToDouble(p -> p.rentPrice)
+                .average()
+                .orElse(0.0);
 
         // Calculate the quantity of properties in the state of Illinois (IL)
-        // propertyReport.illinoisQuantity =
+        propertyReport.illinoisQuantity = (int) allProperties.stream()
+                .filter(p -> p.address.state.equals("IL"))
+                .count();
 
         return propertyReport;
     }

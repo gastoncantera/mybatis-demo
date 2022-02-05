@@ -37,6 +37,15 @@
             timezone="America/Chile/Santiago"
     />
 
+    <address
+            id="5"
+            street="3101 Old Jacksonville Rd"
+            city="Springfield"
+            state="IL"
+            zip="62704"
+            timezone="America/UnitedStates/Chicago"
+    />
+
     <property
             id="1"
             create_time="20220203170000"
@@ -75,6 +84,16 @@
             id_address="4"
             email_address="test@test.com"
             code="CL001"
+    />
+
+    <property
+            id="5"
+            create_time="20220205153000"
+            type="Townhouse"
+            rent_price="5000.99"
+            id_address="5"
+            email_address="NULL"
+            code="US001"
     />
 
 </dataset>
